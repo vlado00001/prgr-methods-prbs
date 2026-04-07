@@ -1,0 +1,23 @@
+n students are in a line, having received grades at algorithms programming. They all must receive a candy at least, but those with a better grade than their neighbors should receive more than their respective neighbor. Minimum candy count?
+
+Input:
+a vector of floating-point numbers
+
+Output:
+minimum candy count
+
+Solution (original):
+dynamic programming is used. initially, all dp values are 1, then the 3 cases compute as follows:
+ascending sequences make dp[i] = dp[i-1] + 1, stagnating make dp[i] = dp[i-1]. Then, decreasing sequences are the ones that add complexity:
+the current student is assigned dp[i] = 1, while a for loop iterates backwards, reassigning values with dp[j] = dp[j + 1] + 1, until the hierarchy is met for the first time.
+
+Complexity (original):
+T: O(n) avg and O(n^2) worst-case for perfectly descending arrays
+S: O(n) for an auxiliary dp vector
+
+Solution (optimized):
+two-pass greedy: forward (checking ascending or stagnating left to right) and backward (checking ascending or stagnating right to left, without overriding peaks)
+
+Complexity (optimized):
+T: O(n) every element is visited twice
+S: O(n) for an auxiliary dp vector

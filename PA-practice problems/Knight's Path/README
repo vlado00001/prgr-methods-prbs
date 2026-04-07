@@ -1,0 +1,18 @@
+A knight starts from top-left and travels to the bottom-right of a grid, winning fights worth positive points every time when moving. He can move South or East at any moment. Maximum points gained? Path followed?
+
+Input:
+matrix
+
+Output:
+max reward sum using the given possible moves
+path followed
+
+Solution:
+Dynamic Programming is used, as past partial solutions are necessary for creating current solutions.
+Firstly, the dp is filled for line 0 and column 0, then by adding W and N for each remaining cell. The rest is just printing.
+The total reward is in dp[lines-1][cols-1]. The path is calculated by choosing from the top-left to the bottom-right the highest value in dp at each step.
+
+Complexity:
+
+T: O(lines * cols) // 2 imbricated for loops
+S: O(lines * cols) // for aux dp matrix

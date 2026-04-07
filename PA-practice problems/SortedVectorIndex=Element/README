@@ -1,0 +1,17 @@
+A sorted vector is given, with different elements. Is there an index i such that v[i] = i? Elements can be negative too
+
+Input:
+vector
+
+Output:
+index i with v[i] = i
+
+Solution:
+
+The vector is sorted, so binary search can be applied to it. if (v[mid] - i < 0), the solution is to the right, otherwise if (v[mid] - i > 0), the solution is to the left, otherwise the solution is the element.
+We use a 0-indexed vector, a left and a right index. The scheme used is Divide et Impera through a binary search.
+
+Complexity:
+
+T: O(logn) // binary search halves the search interval each time
+S: O(1) // no auxiliary DS used
