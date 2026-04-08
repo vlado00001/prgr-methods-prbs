@@ -1,0 +1,17 @@
+A hero walks up the stairs, with +1, +2 or +3 stairs at a time. Each stair has a weight associated, which must be taken and carried to the end. What is the minimum weights cost to get to the end?
+
+Input:
+weights vector
+
+Output:
+minimum weight accumulated
+
+Solution:
+dynamic programming is more efficient here than backtracking, since the most optimal solution is wanted, not all solutions.
+One approach would be keeping a vector dp and for each element at index 3..(n-1), the current element becomes the minimum between w[i] + w[i-1], w[i] + w[i-2] and w[i] + w[i-3].
+This is however space-inefficient, with O(n). Only the last 3 elements before w[i] are needed, so that cen be optimized, by eliminating useless partial solutions. Early return is guaranteed for vector size of 3 or less.
+
+Complexity:
+
+T: O(n) // one for-loop
+S: O(1) // no supplementary structures
