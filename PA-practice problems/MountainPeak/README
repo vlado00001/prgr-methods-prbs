@@ -1,0 +1,17 @@
+A heights vector is given, with only one global peak, no local peaks. Identify the peak most efficiently.
+
+Input:
+vector
+
+Output:
+peak value
+
+Solution:
+Divide et Impera is wanted, knowing that we need to find a value that is a) unique and b) the maximum among the rest.
+The common approach (not time-efficient) would be sorting the vector and obtaining the last element. However, a binary search-approach shortens the time to O(logn).
+The check is for ascending/ descending order, to know in which remaining part of the vector to look next.
+
+Complexity:
+
+T: O(logn)  // binary search
+S: O(1) // no additional structures used
