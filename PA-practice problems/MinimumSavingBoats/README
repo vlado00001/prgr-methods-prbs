@@ -1,0 +1,18 @@
+n people are stranded on an island, each with their weight. Max per boat is 2 people and a boat sustains < W weight. Minimum number of boats to save everyone simultaneously?
+
+Input:
+weights vector
+W (max supported weight)
+
+Output:
+minimum boats number
+
+Solution:
+A Greedy approach is used. The weights vector is sorted, for O(nlogn) time complexity, then it is iterated over.
+2 iterators traverse w (i from the left and j from the right). When the combined weight on the left + right exceeds W, only the heavier person gets a boat, j decrements. Otherwise, both the heavy and slim people are matched and put in a boat, i increments and j decrements.
+The number of boats is incremented in both cases, as well as the third, when i can become equal with j because of a person who cannot be compared anymore.
+
+Complexity:
+
+T: O(nlogn) // sort + for loop with O(n)
+S: O(1) // no structures used
