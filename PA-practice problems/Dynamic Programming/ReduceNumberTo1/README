@@ -1,0 +1,20 @@
+a number n is given. what is the minimum number of operations to reduce it to 1. Available operations: n/2 (when divisible), n/3 (when divisible), n-1
+
+Input:
+n
+
+Output:
+operations number
+
+Solution:
+A naive solution, using Greedy, would be to divide the current n with 3 when possible, otherwise with 2, otherwise decrement. But for the number 10 for instance, this solution yields 4 operations total vs the minimum of 3 (-1, /3, /3).
+Instead, a dynamic programming approach could be used, combined with Divide et Impera. An unordered map is used to keep partial solutions that have been encountered before (memoization). Using a vector would use up too many resources, out of which most wouldn't even help to build the final solution.
+Base case: n is 1 (0 steps left), 2 or 3 (1 step, dividing by that number).
+dp.count(n) != 0 checks if we have solved for n before, avoiding useless recursion.
+Recursion: It checks 2 paths: dividing by 2, where the division itself is an operation and n % 2 is the amount of operations to get to the number divisible by 2, and dividing by 3, which follows the same logic. At the end, the map is filled for the current n and the result is returned
+
+
+Complexity:
+
+T: O((logn)^2)
+S: O((logn)^2)  // an entry for each value visited, log2n * log3n
