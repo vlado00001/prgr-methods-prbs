@@ -1,0 +1,15 @@
+An unoriented graph with n nodes and m arcs is divided into 2 groups S and T, in a way such that the number of arcs with one end in S and the other in T is the maximum possible. We do not require an optimal solution, just a very close one to it, while maintaining a reasonable temporal complexity.
+
+Input:
+
+
+Output:
+
+
+Solution:
+
+
+Complexity:
+
+T:
+S:

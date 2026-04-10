@@ -1,0 +1,15 @@
+n is given. Print all ways of arranging the numbers from 1 to n such that each number appears twice and the number of numbers between 2 of the same number is equal to that number.
+
+Input:
+
+
+Output:
+
+
+Solution:
+
+
+Complexity:
+
+T:
+S:

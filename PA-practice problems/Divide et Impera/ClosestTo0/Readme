@@ -1,0 +1,15 @@
+A vector of natural numbers is sorted, then rotated by k positions (k is unknown). Identify the closest element to 0.
+
+Input:
+
+
+Output:
+
+
+Solution:
+
+
+Complexity:
+
+T:
+S:
