@@ -1,1 +1,1 @@
-Leetcode problems solved
+Algorithm schemes
