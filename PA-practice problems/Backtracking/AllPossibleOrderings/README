@@ -1,15 +1,32 @@
 n is given. Print all ways of arranging the numbers from 1 to n such that each number appears twice and the number of numbers between 2 of the same number is equal to that number.
 
 Input:
-
+the positive integer n
 
 Output:
-
+All unique sequences of length 2n containing pairs of numbers from 1 to n, where each pair of value k is separated by exactly k other numbers.
 
 Solution:
+The problem is solved using Backtracking, specifically the scheme:
 
+for (all possible choices) {
+    if (choice is valid) {
+        make_choice();
+        recurse();
+        undo_choice();  // backtrack
+    }
+}
+
+The algorithm attempts to place the numbers into an array of size 2n starting from the largest value (n) down to the smallest (1).
+For each number k, the algorithm searches for an empty index i such that the index j=i+k+1 is also within bounds and empty. If a valid placement is found, it recurses to the next number; otherwise, it backtracks by clearing the positions and trying a different index.
+
+Optimizations:
+A solution also implies its reverse is a solution, lowering the searches 2-fold.
+Forward propagation: When a number's position is set, its twin number's position is also set with the corresponding spacing, lowering the domain from 2n to n.
+Placing larger numbers first is more efficient as they have stricter placing constraints.
+The mathematically demonstrated condition that only an n with the remainder of 0 or 3 for division with 4 has solutions - if (n % 4 != 0 && n % 4 != 3) return 0;
 
 Complexity:
 
-T:
-S:
+T: O(2^n), even with pruning
+S: O(n). The recursion depth is n (one level for each number placed), and the auxiliary vector used to store the sequence is of size 2n.

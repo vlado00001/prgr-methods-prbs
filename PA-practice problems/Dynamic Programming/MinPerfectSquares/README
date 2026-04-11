@@ -1,0 +1,25 @@
+Given n, what is the minimum number of perfect squares that add up to n?
+
+Input:
+n
+
+Output:
+The smallest number of perfect square integers summing up to n
+
+Solution:
+The approach is dynamic programming. Base case is dp[0], as getting 0 requires 0 perfect squares. Each index of dp represents the no. of perfect squares needed to get to i.
+for each i from 0 to n, we iterate through all perfect squares j^2, such that j^2 <= i. The current state is updated, according to: dp[i] = min(dp[i], dp[i−j^2] + 1).
+
+Complexity:
+
+T: O(n * sqrt(n))   // For every number from 1 to n, we perform a nested loop that runs sqrt(n) times
+S: O(n) // aux dp vector
+
+Bonus:
+
+Lagrange's Four-Square Theorem states that a number is a sum of at most 4 squares, and Legendre's Three-Square Theorem states when a number is a sum of at most 3 squares. Without dynamic programming:
+
+Case a) n is a perfect square => 1
+Case b) n is a sum of perfect squares, which can be found in T: O(sqrt(n))
+Case c) n is a sum of 4 squares only if it can be written as 4^k * (8m + 7). We can divide n by 4 repeatedly, then check if n % 8 == 7.
+Case d) otherwise, return 3

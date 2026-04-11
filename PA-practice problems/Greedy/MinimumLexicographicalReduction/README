@@ -1,0 +1,18 @@
+A string is given, as well as an integer k. Return the smallest string lexicographically (what strcmp uses), after removing k characters.
+
+Input:
+A string s and an integer k
+
+Output:
+The lexicographically smallest string possible after removing k elements
+
+Solution:
+We iterate through the string and identify the first element s[i] such that s[i] > s[i+1].
+As soon as the condition is met, we remove s[i] and decrement k.
+After a removal, we restart the search from the beginning (or the previous index) because the new neighbor might now form a new high.
+If the string becomes non-decreasing and we still have k > 0, we remove characters from the end, as they are the largest.
+
+Complexity:
+
+T: O(n * k) // for each k, the entire string might be scanned.
+S: O(n) // storing the string

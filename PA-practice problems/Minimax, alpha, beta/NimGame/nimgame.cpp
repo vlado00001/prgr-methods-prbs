@@ -1,17 +1,17 @@
-#include <algorithm>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 class Solution {
 public:
-    static int nimgame() {
-
+    static bool nimgame(int n) {
+        // starting player loses if n is a multiple of 4
+        return n % 4 != 0;
     }
 };
 
 int main() {
-    Solution s;
-    cout << s.nimgame() << endl;
+    int n = 400;
+    cout << boolalpha << "Win? " << Solution::nimgame(n)
+    << " (if the opponent plays optimally)" << endl;
 }

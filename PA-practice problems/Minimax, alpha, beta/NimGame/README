@@ -7,6 +7,12 @@ The one who removes the last stone is the winner.
 
 Given n, the number of stones in the heap, return true if you can win the game assuming both you and your friend play optimally, otherwise return false.
 
+Input:
+An integer n, representing the total number of stones in a heap.
+
+Output:
+true if you can win the game (starting first), false if you cannot, assuming both players play perfectly.
+
 Example 1:
 
 Input: n = 4
@@ -32,9 +38,13 @@ Constraints:
 1 <= n <= 2^31 - 1
 
 Solution:
+If n is a multiple of 4, you are in a losing position.
+No matter if you take 1, 2, or 3 stones, your opponent can take exactly enough stones (4−your amount taken) to keep the remaining total a multiple of 4, eventually leaving you with 0.
 
+If n is not a multiple of 4, you are in a winning position. You can remove n % 4 stones to leave your friend with a multiple of 4, forcing them into the losing position described above.
+Therefore, the solution is simply checking if n % 4 != 0. Minmax in this situation can get very inefficient because of n's constraints.
 
 Complexity:
 
-T:
-S:
+T: O(1) // one operation
+S: O(1) // no extra structures used

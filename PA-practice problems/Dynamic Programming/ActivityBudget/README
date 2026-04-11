@@ -1,0 +1,23 @@
+You must take n activities, each with a price and a unique score (higher score = activity is more attractive). The budget is B. Choose an activity subset with the cost at most B, such that the sum of ranks is maximal.
+
+Input:
+activities vector
+B budget
+
+Output:
+maximum scores in budget
+
+Solution:
+Dynamic Programming is used. An array dp is used, where dp[j] represents the maximum sum of ranks we can achieve with a budget of exactly j.
+The transition is dp[j] = max(dp[j], rank + dp[j − price]), meaning for each activity we check if it is better to keep the current rank sum or to buy the activity using its price and adding it to a previous budget state.
+The iteration happens from the budget down to the price of each activity, since each rank appears once.
+At every budget level j, we pick:
+
+Option A: Keep the current value of dp[j] (the best rank we found using previous activities)
+Option B: Take the rank of the current activity (activities[i].rank) and add it to the best rank we could achieve with the remaining budget (dp[j - activities[i].price])
+
+Complexity:
+
+T: O(n * B)    // for every activity (n), we potentially update every budget value up to B.
+
+S: O(B) // only an array of size B + 1 to store the best results found so far.

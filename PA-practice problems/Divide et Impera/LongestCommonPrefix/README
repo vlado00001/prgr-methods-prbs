@@ -1,15 +1,15 @@
-
+A set of strings is given. Find the longest common prefix of them.
 
 Input:
-
+A vector or array of strings, e.g., ["apple", "ape", "april"].
 
 Output:
-
+A single string representing the longest common starting sequence, e.g., "ap".
 
 Solution:
-
+The scheme used is Divide et Impera. The array of strings is recursively split into two halves until the base case is reached (a single string). We split the input array into left and right sub-arrays, then recursively find the LCP of the left and right halves. Then, the LCP of the 2 halves are compared and their LCP, going back up the stack.
 
 Complexity:
 
-T:
-S:
+T: O(S) Where S is the total number of characters in all strings. In the worst case (all strings are identical), the algorithm compares every character.
+S: O(M * logn)
